@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 
 import "../globals.css";
 export const metadata = {
-  title: "Threads",
+  title: "Multithreads",
   description: "A Next.js 13 Threads/Twitter clone App",
 };
 

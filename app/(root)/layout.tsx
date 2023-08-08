@@ -10,7 +10,7 @@ import TopBar from "@/components/shared/TopBar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Threads",
+  title: "Multithreads",
   description: "A Next.js 13 Threads/Twitter clone App",
 };
 
