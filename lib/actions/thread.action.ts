@@ -97,3 +97,37 @@ export async function fetchThreadById(threadId: string){
         throw new Error(`Error while fetching thread: ${threadId} with error: ${error}`)
     }
 }
+
+export async function addCommentToThread(threadId: string, commentText: string, userId: string, path: string){
+try{
+    connectToDB();
+    //find parent thread by its id
+    const originalThread = await Thread.findById(threadId);
+    if(!originalThread){
+        throw new Error("The Thread you are trying to reply to doesn't exist.")
+    }
+    //create new tread with the comment text
+    const commentThread = new Thread({
+        text: commentText,
+        author: userId,
+        parentId: threadId
+    })
+
+   //saving the new comment thread to db
+   const savedCommentThread = await commentThread.save();
+
+   //update the original thread to include the new comment 
+
+   originalThread.children.push(savedCommentThread._id)
+
+   //save the original thread after updating
+
+   await originalThread.save();
+
+   revalidatePath(path);
+    
+}
+catch(error){
+    throw new Error(`Error while commenting on a thread: ${threadId} with error: ${error}`)
+}
+}
