@@ -10,8 +10,8 @@ import TopBar from "@/components/shared/TopBar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Multithreads",
-  description: "A Next.js 13 Threads/Twitter clone App",
+  title: "Threaddit",
+  description: "A Next.js 13 Threads/Twitter/X/Reddit clone App",
 };
 
 export default function RootLayout({
