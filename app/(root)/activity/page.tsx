@@ -12,7 +12,7 @@ const Page = async () => {
 
   //getActivity // getNotifications
 
-  const activity = await getActivity(userInfo._id);
+  const activity = [await getActivity(userInfo._id)];
   return (
     <section>
       <h1 className="head-text mb-10">Activity</h1>
